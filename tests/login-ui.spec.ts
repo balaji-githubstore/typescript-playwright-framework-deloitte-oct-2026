@@ -25,6 +25,8 @@ test.describe("OpenEMR Login UI", () => {
         await page.goto("https://demo.openemr.io/b/openemr/");
         
         await expect(page.locator("//a[contains(text(),'Licensing')]")).toHaveText("Acknowledgments, Licensing and Certification");
+        //contains regex check 
+        //https://www.convex.dev/typescript/core-concepts/functions-methods/typescript-regex
         await expect(page.locator("//a[contains(text(),'Licensing')]")).toHaveAttribute("href",/acknowledge_license_cert.html/);
     });
 })

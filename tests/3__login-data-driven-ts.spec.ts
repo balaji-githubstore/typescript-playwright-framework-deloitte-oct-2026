@@ -1,6 +1,7 @@
 import { test, expect } from "@playwright/test";
 import { validLoginData, invalidLoginData } from "./../utils/data-source.js"
 
+//data driven using typescript file
 test.describe("login functionality check", () => {
 
     for (let { username, password, language, expectedValue } of validLoginData) {

@@ -1,6 +1,7 @@
 import { test, expect } from "@playwright/test";
 import { JsonUtils } from "../utils/json-utils.js"
 
+//data driven using json file
 test.describe("login functionality check", () => {
 
     const validLoginData=JsonUtils.getJSONValue("validLoginData");

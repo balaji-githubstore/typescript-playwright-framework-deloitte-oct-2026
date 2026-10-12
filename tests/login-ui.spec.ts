@@ -13,7 +13,7 @@ test.describe("OpenEMR Login UI", () => {
         //assert the header - The most popular open-source Electronic Health Record and Medical Practice Management solution.
         await expect(page.locator("xpath=//p[contains(text(),'most popular')]"))
         .toHaveText("The most popular open-source Electronic Health Record and Medical Practice Management solution.")
-    })
+    });
 
     test("verify placeholder of username and password", async ({ page }) => {
         await page.goto("https://demo.openemr.io/b/openemr/");

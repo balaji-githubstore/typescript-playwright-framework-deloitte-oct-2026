@@ -1,0 +1,25 @@
+{
+    "validLoginData": [
+        {
+            "username": "receptionist",
+            "password": "receptionist",
+            "language": "English (Indian)",
+            "expectedValue": "Calendar"
+        },
+        {
+            "username": "accountant",
+            "password": "accountant",
+            "language": "English (Indian)",
+            "expectedValue": "Calendar"
+        }
+    ],
+    
+    "invalidLoginData": [
+        {
+            "username": "john",
+            "password": "john123",
+            "language": "English (Indian)",
+            "expectedError": "Invalid username or password"
+        }
+    ]
+}

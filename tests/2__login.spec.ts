@@ -1,5 +1,6 @@
 import { test, expect } from "@playwright/test";
 import { Loginpage } from "../pages/login-page.js";
+import { CalendarPage } from "../pages/calendar-page.js";
 
 test.describe("login functionality check", () => {
 
@@ -7,28 +8,26 @@ test.describe("login functionality check", () => {
         await page.goto("https://demo.openemr.io/b/openemr/");
 
 
-        const loginPage=new Loginpage(page);
-        loginPage.enterUsername("admin");
-        loginPage.enterPassword("pass");
-        loginPage.selectLanguageByLabel("English (Indian)");
+        const loginPage = new Loginpage(page);
+        await loginPage.enterUsername("admin");
+        await loginPage.enterPassword("pass");
+        await loginPage.selectLanguageByLabel("English (Indian)");
 
+        const calendarPage = new CalendarPage(page);
+        calendarPage.verifyCalendarHeader("Calendar");
 
-        await page.locator("xpath=//button[@id='login-button']").click();
-        await expect(page.locator("xpath=//span[text()='Calendar']")).toHaveText("Calendar");
     });
 
     test("verify invalid login", async ({ page }) => {
         await page.goto("https://demo.openemr.io/b/openemr/");
 
-        const loginPage=new Loginpage(page);
-        loginPage.enterUsername("john");
-        loginPage.enterPassword("john123");
-        loginPage.selectLanguageByLabel("English (Indian)");
-        
-        await page.locator("xpath=//button[@id='login-button']").click();
-
-       //assert the error - Invalid username or password
-       await expect(page.locator("xpath=//p[contains(text(),'Invalid')]")).toHaveText("Invalid username or password");
+        const loginPage = new Loginpage(page);
+        await loginPage.enterUsername("john");
+        await loginPage.enterPassword("john123");
+        await loginPage.selectLanguageByLabel("English (Indian)");
+        await loginPage.clickOnLogin();
+        //assert the error - Invalid username or password
+        await loginPage.verifyInvalidLoginError("Invalid username or password");
     });
 
 })

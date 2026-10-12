@@ -1,4 +1,4 @@
-import type { Page } from "@playwright/test";
+import { expect, type Page } from "@playwright/test";
 
 export class CalendarPage {
     private page: Page;
@@ -6,4 +6,9 @@ export class CalendarPage {
     constructor(page: Page) {
         this.page = page;
     }
+
+    public async verifyCalendarHeader(expectedValue: string): Promise<void> {
+        await expect(this.page.locator("xpath=//span[text()='Calendar']")).toHaveText(expectedValue);
+    }
+
 }

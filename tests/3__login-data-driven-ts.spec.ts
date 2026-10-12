@@ -14,7 +14,7 @@ test.describe("login functionality check", () => {
 
             await expect(page.locator("xpath=//span[text()='Calendar']")).toHaveText(expectedValue);
         });
-    }
+    };
 
     for (let { username, password, language, expectedError } of invalidLoginData) {
         test(`verify invalid login ${username} and ${password}`, async ({ page }) => {
@@ -27,7 +27,5 @@ test.describe("login functionality check", () => {
 
             await expect(page.locator("xpath=//p[contains(text(),'Invalid')]")).toHaveText(expectedError);
         });
-    }
-
-
+    };
 });

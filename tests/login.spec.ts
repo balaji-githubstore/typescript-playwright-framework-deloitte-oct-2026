@@ -22,6 +22,7 @@ test.describe("login functionality check", () => {
         await page.locator("xpath=//button[@id='login-button']").click();
 
        //assert the error - Invalid username or password
+       await expect(page.locator("xpath=//p[contains(text(),'Invalid')]")).toHaveText("Invalid username or password");
     });
 
 })

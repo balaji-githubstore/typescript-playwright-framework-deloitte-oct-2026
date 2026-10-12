@@ -5,8 +5,8 @@ test.describe("login functionality check", () => {
     test("verify valid login", async ({ page }) => {
         await page.goto("https://demo.openemr.io/b/openemr/");
 
-        await page.locator("xpath=//input[@id='authUser']").fill("admin");
-        await page.locator("xpath=//input[@id='clearPass']").fill("pass");
+        await page.locator("xpath=//input[@id='authUser']").fill("physician");
+        await page.locator("xpath=//input[@id='clearPass']").fill("physician");
         await page.locator("xpath=//select[@name='languageChoice']").selectOption({label:"English (Indian)"});
         await page.locator("xpath=//button[@id='login-button']").click();
 

@@ -1,6 +1,6 @@
 import { expect, type Page } from "@playwright/test"
 
-const USERNAME_LOCATOR = "xpath=//input[@id='authUser']"
+const USERNAME_LOCATOR = "xpath=//input[@id='authUser123']"
 const PASSWORD_LOCATOR = "xpath=//input[@id='clearPass']"
 const LANGUAGE_LOCATOR = "xpath=//select[@name='languageChoice']"
 const LOGIN_LOCATOR = "xpath=//button[@id='login-button']"

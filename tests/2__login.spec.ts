@@ -5,7 +5,7 @@ import { CalendarPage } from "../pages/calendar-page.js";
 test.describe("login functionality check", () => {
 
     test("verify valid login", async ({ page }) => {
-        await page.goto("https://demo.openemr.io/b/openemr/");
+        await page.goto("");
 
         const loginPage = new Loginpage(page);
         await loginPage.enterUsername("admin");
@@ -18,7 +18,7 @@ test.describe("login functionality check", () => {
     });
 
     test("verify invalid login", async ({ page }) => {
-        await page.goto("https://demo.openemr.io/b/openemr/");
+        await page.goto("");
 
         const loginPage = new Loginpage(page);
         await loginPage.enterUsername("john");

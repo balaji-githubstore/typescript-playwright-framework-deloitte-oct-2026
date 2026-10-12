@@ -9,7 +9,7 @@ test.describe("login functionality check", () => {
     const validLoginData = JsonUtils.getJSONValue("validLoginData");
     for (let { username, password, language, expectedValue } of validLoginData) {
         test(`verify valid login ${username} and ${password}`, async ({ page }) => {
-            await page.goto("https://demo.openemr.io/b/openemr/");
+            await page.goto("");
 
             const loginPage = new Loginpage(page);
             await loginPage.enterUsername(username);
@@ -24,7 +24,7 @@ test.describe("login functionality check", () => {
     const invalidLoginData = JsonUtils.getJSONValue("invalidLoginData");
     for (let { username, password, language, expectedError } of invalidLoginData) {
         test(`verify invalid login ${username} and ${password}`, async ({ page }) => {
-            await page.goto("https://demo.openemr.io/b/openemr/");
+            await page.goto("");
 
             const loginPage = new Loginpage(page);
             await loginPage.enterUsername(username);

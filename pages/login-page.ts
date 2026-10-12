@@ -27,6 +27,5 @@ export class Loginpage {
     public async verifyInvalidLoginError(expectedError: string): Promise<void> {
         await expect(this.page.locator("xpath=//p[contains(text(),'Invalid')]")).toHaveText(expectedError);
     }
-
-
 }
+

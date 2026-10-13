@@ -27,4 +27,29 @@ export class BasePage {
     public async verifyPlaceholder(locator: string, expectedValue: string) {
         await expect(this.page.locator(locator)).toHaveAttribute("placeholder", expectedValue);
     }
+
+    public async switchToPageByTitle(title: string): Promise<Page> {
+        const pages = this.page.context().pages();
+        for (const p of pages) {
+            if ((await p.title()) === title) {
+                await p.bringToFront();
+                this.page = p;
+                return p;
+            }
+        }
+        throw new Error(`No page found with title: ${title}`);
+    }
+
+        public async handleAlert(accept: boolean = true, promptText?: string): Promise<string> {
+        let message = "";
+        this.page.once("dialog", async (dialog) => {
+            message = dialog.message();
+            if (accept) {
+                await dialog.accept(promptText);
+            } else {
+                await dialog.dismiss();
+            }
+        });
+        return message;
+    }
 }

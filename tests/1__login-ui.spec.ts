@@ -5,7 +5,7 @@ test.describe("OpenEMR Login UI", () => {
 
     test("verify title", async ({ page }) => {
         await page.goto("");
-        await expect(page).toHaveTitle("OpenEMR Login1");
+        await expect(page).toHaveTitle("OpenEMR Login");
     });
 
      test("verify header", async ({ page }) => {
@@ -19,6 +19,13 @@ test.describe("OpenEMR Login UI", () => {
         await page.goto("");
         await expect(page.locator("xpath=//input[@id='authUser']")).toHaveAttribute("placeholder","Username");
         await expect(page.locator("xpath=//input[@id='clearPass']")).toHaveAttribute("placeholder","Password");
+    });
+
+    test("verify label of username, password and language", async ({ page }) => {
+        await page.goto("");
+        await expect(page.locator("label[for='authUser']")).toHaveText("Username");
+        await expect(page.locator("label[for='clearPass']")).toHaveText("Password");
+        await expect(page.locator("label[for='language']")).toHaveText("Language");
     });
 
      test("verify acknowledgement Licensing link", async ({ page }) => {

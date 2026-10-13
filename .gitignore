@@ -156,3 +156,5 @@ vite.config.ts.timestamp-*
 
 # Turbo Repo
 .turbo
+
+playwright-report/data

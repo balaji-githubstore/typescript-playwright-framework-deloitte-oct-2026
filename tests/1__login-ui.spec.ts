@@ -5,7 +5,7 @@ test.describe("OpenEMR Login UI", () => {
 
     test("verify title", async ({ page }) => {
         await page.goto("");
-        await expect(page).toHaveTitle("OpenEMR Login");
+        await expect(page).toHaveTitle("OpenEMR Login1");
     });
 
      test("verify header", async ({ page }) => {

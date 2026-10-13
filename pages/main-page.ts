@@ -1,9 +1,9 @@
 import type { Page } from "@playwright/test";
+import { BasePage } from "./base/base-page.js";
 
-export class MainPage {
-    private page: Page;
-
+export class MainPage extends BasePage {
+    
     constructor(page: Page) {
-        this.page = page;
+       super(page);
     }
 }
